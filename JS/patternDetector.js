@@ -29,7 +29,8 @@ class PatternDetector {
 
     // 1. Check against common weak/personal words
     for (const word of patterns.commonWords) {
-      if (lowerInput.includes(word)) {
+      const wordRegex = new RegExp("\\b" + word + "\\b", "i");
+      if (wordRegex.test(lowerInput)) {
         this.matchedRule = "commonWord";
         return true;
       }
