@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Memorable Password Generator</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-icon">🔐</div>
+      <h1>Smart Password Generator</h1>
+      <p class="subtitle">Enter a word or phrase — we'll transform it into a strong, memorable password.</p>
+    </header>
+
+    <!-- Input Section -->
+    <section class="card" id="input-section">
+      <label for="user-input" class="label">Your word or phrase</label>
+      <div class="input-row">
+        <input
+          type="text"
+          id="user-input"
+          class="input-field"
+          placeholder="Type a word or phrase..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="generate-btn" class="btn btn-primary">Generate</button>
+      </div>
+      <p class="input-hint">Choose something memorable to you — avoid names, birthdays and common words.</p>
+    </section>
+
+    <!-- Warning Section (hidden by default) -->
+    <section class="card warning-card" id="warning-section" aria-live="polite" hidden>
+      <div class="warning-icon">⚠</div>
+      <div class="warning-content">
+        <strong>Input Not Accepted</strong>
+        <p id="warning-message"></p>
+      </div>
+    </section>
+
+    <!-- Result Section (hidden by default) -->
+    <section class="card result-card" id="result-section" hidden>
+
+      <div class="result-header">
+        <span class="result-label">Generated Password</span>
+        <span class="success-badge">✓ Input accepted</span>
+      </div>
+
+      <div class="password-display-row">
+        <div class="password-display" id="password-display" aria-label="Generated password"></div>
+        <button class="btn btn-icon" id="copy-btn" title="Copy to clipboard">
+          <span id="copy-icon">📋</span>
+        </button>
+      </div>
+
+      <div id="copy-feedback" class="copy-feedback" hidden>Copied!</div>
+
+      <!-- Strength Bar -->
+      <div class="strength-section">
+        <div class="strength-label-row">
+          <span class="strength-label">Password Strength</span>
+          <span class="strength-rating" id="strength-rating"></span>
+        </div>
+        <div class="strength-bar-track">
+          <div class="strength-bar-fill" id="strength-bar"></div>
+        </div>
+        <ul class="feedback-list" id="feedback-list"></ul>
+      </div>
+
+      <!-- Optional Storage -->
+      <div class="storage-section">
+        <label class="storage-label">
+          <input type="checkbox" id="save-checkbox" />
+          Save this password temporarily (auto-deleted after 24 hours)
+        </label>
+        <p class="storage-note">Passwords are encrypted before saving and never stored in plaintext.</p>
+        <div id="storage-feedback" class="storage-feedback" hidden></div>
+      </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Passwords are not stored by default. Your input is never saved.</p>
+    </footer>
+
+  </div>
+
+  <!-- Load JS modules in dependency order -->
+  <script src="js/patternRepository.js"></script>
+  <script src="js/patternDetector.js"></script>
+  <script src="js/transformationEngine.js"></script>
+  <script src="js/strengthChecker.js"></script>
+  <script src="js/passwordGeneration.js"></script>
+  <script src="js/passwordStorage.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
