@@ -253,3 +253,52 @@ body {
 
 /* ── Ensure hidden attribute always works regardless of display type ─────── */
 [hidden] { display: none !important; }
+
+/* ── Passphrase Row (save + retrieve) ─────────────────────────────────────── */
+.passphrase-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+.input-field-small {
+  padding: 0.55rem 0.8rem;
+  font-size: 0.88rem;
+}
+.btn-small {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* ── Retrieve Saved Password Card ─────────────────────────────────────────── */
+.retrieve-card {
+  border: 1.5px solid #E07B39;
+  background: #FFFBF5;
+}
+.retrieve-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.3rem;
+}
+.retrieve-icon { font-size: 1.3rem; }
+.retrieve-header strong { font-size: 0.95rem; color: var(--navy); }
+.retrieve-sub { font-size: 0.8rem; color: var(--gray); margin-top: 0.15rem; }
+
+.retrieve-result {
+  margin-top: 0.7rem;
+  background: var(--lgray);
+  border-radius: var(--radius);
+  padding: 0.7rem 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  word-break: break-all;
+}
+.retrieve-error {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--red);
+  font-weight: 600;
+}

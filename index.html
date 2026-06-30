@@ -78,10 +78,48 @@
           <input type="checkbox" id="save-checkbox" />
           Save this password temporarily (auto-deleted after 24 hours)
         </label>
-        <p class="storage-note">Passwords are encrypted before saving and never stored in plaintext.</p>
+        <p class="storage-note">Encrypted with a passphrase you choose. We never store the passphrase or the key.</p>
+
+        <div id="passphrase-row" class="passphrase-row" hidden>
+          <input
+            type="password"
+            id="save-passphrase"
+            class="input-field input-field-small"
+            placeholder="Create a passphrase to encrypt with"
+            autocomplete="off"
+          />
+          <button id="confirm-save-btn" class="btn btn-primary btn-small">Encrypt &amp; Save</button>
+        </div>
+
         <div id="storage-feedback" class="storage-feedback" hidden></div>
       </div>
 
+    </section>
+
+    <!-- Retrieve Saved Password Section (shown only if a saved password exists) -->
+    <section class="card retrieve-card" id="retrieve-section" hidden>
+      <div class="retrieve-header">
+        <span class="retrieve-icon">🔒</span>
+        <div>
+          <strong>You have a saved password</strong>
+          <p class="retrieve-sub" id="retrieve-time-remaining"></p>
+        </div>
+      </div>
+
+      <div class="passphrase-row">
+        <input
+          type="password"
+          id="retrieve-passphrase"
+          class="input-field input-field-small"
+          placeholder="Enter your passphrase"
+          autocomplete="off"
+        />
+        <button id="reveal-btn" class="btn btn-primary btn-small">Reveal</button>
+        <button id="delete-saved-btn" class="btn btn-icon btn-small" title="Delete saved password">🗑</button>
+      </div>
+
+      <div id="retrieve-result" class="retrieve-result" hidden></div>
+      <div id="retrieve-error" class="retrieve-error" hidden>Incorrect passphrase. Please try again.</div>
     </section>
 
     <!-- Footer -->
