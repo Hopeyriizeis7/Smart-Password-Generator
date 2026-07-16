@@ -142,7 +142,18 @@ confirmSaveBtn.addEventListener('click', async () => {
   const password   = generator.formatPassword();
   const passphrase = savePassphrase.value.trim();
 
+  // ── FIX: read the current input field value at click time ─────────────────
+  const userInput  = inputField.value.trim().toLowerCase();
+
   if (!password) return;
+
+  // Prevent passphrase matching the original input word
+  if (passphrase.toLowerCase() === userInput) {
+    storageFeedback.hidden = false;
+    storageFeedback.textContent = '⚠ Your passphrase cannot be the same as your input word. Please choose a different passphrase.';
+    storageFeedback.className = 'storage-feedback cleared';
+    return;
+  }
 
   if (!passphrase || passphrase.length < 4) {
     storageFeedback.hidden = false;
@@ -158,7 +169,7 @@ confirmSaveBtn.addEventListener('click', async () => {
     storageFeedback.textContent = '🔒 Password encrypted and saved. You will need your passphrase to retrieve it within 24 hours.';
     storageFeedback.className = 'storage-feedback saved';
     savePassphrase.value = '';
-    checkForSavedPassword(); // refresh the retrieve section
+    checkForSavedPassword();
   } else {
     storageFeedback.textContent = 'Saving failed. Please try again.';
     storageFeedback.className = 'storage-feedback cleared';

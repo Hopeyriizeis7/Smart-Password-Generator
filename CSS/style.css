@@ -338,7 +338,6 @@ body::after {
   font-size: 0.85rem;
   flex-shrink: 0;
 }
-
 /* ── Retrieve Saved Password Card ─────────────────────────────────────────── */
 .retrieve-card {
   border: 1.5px solid var(--yellow);
@@ -382,3 +381,28 @@ body::after {
 
 /* ── Ensure hidden attribute always works regardless of display type ─────── */
 [hidden] { display: none !important; }
+
+.how-to-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem 1.4rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--blue-soft);
+  font-size: 0.88rem;
+}
+.how-to-card summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--blue-deep);
+  font-size: 0.92rem;
+  list-style: none;
+}
+.how-to-steps {
+  margin-top: 0.8rem;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--navy-text);
+  line-height: 1.5;
+}

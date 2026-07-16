@@ -88,7 +88,12 @@ class StrengthChecker {
     return {
       score: this.score,
       rating: this.getRating(),
-      feedback: this.feedback.length > 0 ? this.feedback : ['Password meets all strength criteria.']
+      feedback: this.feedback.length > 0 ? this.feedback: [
+  'Password meets all strength criteria.',
+  'Length: sufficient (8+ characters) ✓',
+  'Contains uppercase and lowercase letters ✓',
+  'Contains numbers and special characters ✓'
+]
     };
   }
 
